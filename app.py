@@ -1,5 +1,4 @@
 import os
-os.environ["CREWAI_DISABLE_TELEMETRY"] = "true"
 import streamlit as st
 from crewai import LLM, Task, Agent, Crew, Process
 from crewai_tools import ScrapeWebsiteTool
@@ -264,10 +263,10 @@ if submit:
             
             # Initialize LLM
             my_llm = LLM(
-                model="gpt-4o-mini",
-                api_key=os.getenv("OPENAI_API_KEY")
+                model="groq/llama-3.3-70b-versatile",
+                api_key= os.getenv("GROQ_API_KEY")
             )
-            
+                        
             scrape_tool = ScrapeWebsiteTool()
             
             progress_text.text("Initializing AI agents...")
